@@ -1,0 +1,2 @@
+npx cypress run --record --key 8a127802-b4cc-4ec1-a41e-54f389c4cc98
+npm run cypress:open

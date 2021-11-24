@@ -1,0 +1,16 @@
+{
+    "projectId": "e1cdhv",
+    "env": {
+        "db": {
+            "userName": "UseMneNhadasoft",
+            "password": "TRcdfdG$H8%4eD9(",
+            "server": "soptec.database.windows.net",
+            "options": {
+                "database": "TRITON_SOPTEC",
+                "encrypt": true,
+                "rowCollectionOnRequestCompletion" : true
+            }
+        }
+    },
+    "chromeWebSecurity": false
+}
