@@ -4,7 +4,7 @@ describe("Referencias Pago Payvalida", () => {
       try {
         console.log("PASO 1");
         cy.log("PASO 1");
-        cy.wait(200);
+        cy.wait(20000);
         const sql = "SELECT * FROM TransaccionProcesarTemp WHERE vchUrlReferenciaPago IS NOT NULL AND vchReferenciaPago IS NULL AND bitIDJugadorValido = 1";
         cy.sqlServerTriton(sql).should((res) => {
           if (res && res.length > 0 && !Array.isArray(res[0])) {

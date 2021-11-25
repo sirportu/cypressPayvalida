@@ -4,7 +4,7 @@ describe("Referencias Pago Payvalida", () => {
       try {
         console.log("PASO 1");
         cy.log("PASO 1");
-        cy.wait(200);
+        cy.wait(20000);
         const sql = "SELECT to.id,to.adicional01,(SELECT TOP 1 id FROM CatalogoDetalle WHERE valor = 'OBTENCION_REFERENCIA_OK') FROM TransaccionOffline to" + 
         "INNER JOIN CatalogoDetalle cd ON to.catalogoDetalleIdEstado = cd.id" +
         "WHERE to.adicional01 IS NOT NULL AND to.referenciaPago IS NULL AND cd.valor = 'REGISTRADA'";
