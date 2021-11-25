@@ -7,13 +7,15 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "cypress:open": "cypress open",
         "cypress:open-spec": "cypress run --spec cypress/integration/payvalida.js",
+        "cypress:open-cli-triton": "cypress run --record --key 8a127802-b4cc-4ec1-a41e-54f389c4cc98 --spec cypress/integration/payvalidaTriton.js",
         "cypress:open-cli": "cypress run --record --key 8a127802-b4cc-4ec1-a41e-54f389c4cc98 --spec cypress/integration/payvalida.js"
     },
     "author": "",
     "license": "ISC",
     "devDependencies": {
         "cypress": "^9.1.0",
-        "cypress-sql-server": "^1.0.0"
+        "coffeescript": "^2.5.1",
+        "tedious": "^8.3.0"
     },
     "dependencies": {
         "@infosimples/node_two_captcha": "^1.1.0"

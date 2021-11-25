@@ -11,7 +11,7 @@
 
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
-const sqlServer = require('cypress-sql-server');
+const Tedious = require('tedious');
 // const Client = require('@infosimples/node_two_captcha');
 
 /**
@@ -21,11 +21,37 @@ const sqlServer = require('cypress-sql-server');
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
-  tasks = sqlServer.loadDBPlugin(config.env.db);
-  on('task', tasks);
+  on('task',  {
+    sqlServer(sql) {
+      return execSQL(sql, config.env.db)
+    }
+  });
+
+  on('task',  {
+    sqlServerTriton(sql) {
+      return execSQL(sql, config.env.dbTriton)
+    }
+  });
 
   /*client = new Client('60b501bf06aba3552eb057e307365ab0', {
     timeout: 60000,
     polling: 5000,
     throwErrors: false});*/
+}
+
+function execSQL(sql, config) {
+  const connection = new Tedious.Connection(config);
+  return new Promise((res, rej) => {
+    connection.on('connect', err => {
+      if (err) {
+        rej(err);
+      }
+
+      const request = new Tedious.Request(sql, function (err, rowCount, rows) {
+        return err ? rej(err) : res(rows);
+      });
+
+      connection.execSql(request);
+    });
+  })
 }

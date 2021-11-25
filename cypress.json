@@ -2,13 +2,39 @@
     "projectId": "e1cdhv",
     "env": {
         "db": {
-            "userName": "UseMneNhadasoft",
-            "password": "TRcdfdG$H8%4eD9(",
-            "server": "soptec.database.windows.net",
+            "server": "10.10.55.8",
+            "authentication": {
+                "type": "default",
+                "options": {
+                    "userName": "NhsUsProd",
+                    "password": "F$Dj%7Euyfv(7"
+                }
+              },
             "options": {
+                "port": 1433,
+                "database": "NHADASOFT",
+                "encrypt": true,
+                "rowCollectionOnRequestCompletion": true,
+                "trustServerCertificate": true,
+                "validateBulkLoadParameters": true
+            }
+        },
+        "dbTriton": {
+            "server": "soptec.database.windows.net",
+            "authentication": {
+                "type": "default",
+                "options": {
+                    "userName": "UseMneNhadasoft",
+                    "password": "TRcdfdG$H8%4eD9("
+                }
+              },
+            "options": {
+                "port": 1433,
                 "database": "TRITON_SOPTEC",
                 "encrypt": true,
-                "rowCollectionOnRequestCompletion" : true
+                "rowCollectionOnRequestCompletion": true,
+                "trustServerCertificate": true,
+                "validateBulkLoadParameters": true
             }
         }
     },
